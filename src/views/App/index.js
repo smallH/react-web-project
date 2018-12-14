@@ -1,6 +1,5 @@
 import React from 'react';
-//import './index.styl';
-import { Route, Switch, HashRouter } from 'react-router-dom'
+import { Route, Switch, HashRouter, BrowserRouter, Redirect } from 'react-router-dom'
 import Login from '@/views/Login'
 import Home from '@/views/Home'
 
@@ -13,14 +12,21 @@ class App extends React.Component {
 	render() {
 		return(
 			<div>
-				<HashRouter basename="/">
+				<BrowserRouter basename="/">
 					<div>
 						<Switch>
-							<Route exact path="/" component={Login}></Route>
-							<Route path="/Home" component={Home}></Route>
+							<Route exact path="/" render={props => (
+								<Redirect
+						            to={{
+						              pathname: "/login",
+						              state: { from: props.location }
+						            }}
+						        />)}></Route>
+							<Route exact path="/login" component={Login}></Route>
+							<Route path="/home" component={Home}></Route>
 						</Switch>
 					</div>
-				</HashRouter>
+				</BrowserRouter>
 			</div>
 		);
 	}

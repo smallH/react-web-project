@@ -68,9 +68,9 @@
   "proxy": "http://helloui.net",
   "scripts": {
     "mock": "nodemon --watch mock --exec json-server mock/db.js --routes mock/router/routes.json --host 127.17.5.117 --port 3000",
-    "dev": "cross-env set PORT=8080 && node scripts/start.js",
-    "build": "cross-env node scripts/build.js",
-    "test": "cross-env node scripts/test.js"
+    "dev": "set PORT=8080 && node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js"
   },
   "eslintConfig": {
     "extends": "react-app"

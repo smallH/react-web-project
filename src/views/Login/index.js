@@ -1,22 +1,32 @@
-import React from 'react';
-import styles from './index.styl';
-import CSSModules from 'react-css-modules';
+import React from 'react'
+import styles from './index.styl'
+import CSSModules from 'react-css-modules'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as AllActions from '@/reducers/Auth/actions'
+import PropTypes from 'prop-types'
 
 class Login extends React.Component {
+	static propTypes = {
+		actions: PropTypes.object.isRequired
+	}
+
 	constructor(props) {
 		super(props)
 		this.state = {}
 	}
 
 	visitor = () => {
+		this.props.actions.signIn("");
 		this.props.history.push({
-			pathname: '/Home/Welcome'
+			pathname: '/home/welcome'
 		})
 	}
 
 	manager = () => {
+		this.props.actions.signIn("API-TOKEN20181214");
 		this.props.history.push({
-			pathname: '/Home/Welcome'
+			pathname: '/home/welcome'
 		})
 	}
 
@@ -33,6 +43,17 @@ class Login extends React.Component {
 	}
 }
 
-export default CSSModules(Login, styles, {
+// 同样实现propTypes效果
+//Login.propTypes = {
+// 	actions: PropTypes.object.isRequired
+//}
+
+const CSSLogin = CSSModules(Login, styles, {
 	allowMultiple: true
 });
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+	actions: bindActionCreators(AllActions, dispatch)
+})
+
+export default connect(null, mapDispatchToProps)(CSSLogin)

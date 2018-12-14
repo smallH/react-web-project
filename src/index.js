@@ -5,8 +5,9 @@ import App from '@/views/App';
 import store from '@/store'
 import '@/assets/styles/base.css'
 import '@/assets/fonts/iconfont.css'
-import {SetAxiosConfig} from '@/assets/js/middleware'
+import { SetAxiosConfig } from '@/assets/js/middleware'
 
+// 配置Axios
 SetAxiosConfig(store);
 
 render(

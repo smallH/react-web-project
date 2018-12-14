@@ -1,11 +1,12 @@
 import axios from 'axios'
 import { getLocalStorage } from '@/utils/storage';
-import { setToken, getToken } from '@/reducers/Token/actions'
+import { getToken } from '@/reducers/Auth'
+import { signIn } from '@/reducers/Auth/actions'
 
 // Axios配置，网络请求时验证token
 export const SetAxiosConfig = function(store) {
 	let _prefix = '';
-
+	
 	if(process.env.NODE_ENV === 'production') {
 		_prefix = `${process.env.HOST}/api`
 	} else {
@@ -18,12 +19,12 @@ export const SetAxiosConfig = function(store) {
 	axios.interceptors.request.use(
 		function(config) {
 			let headertoken = '';
-			let token = store.dispatch(getToken());
+			let token = getToken(store.getState());
 			if(token) {
 				headertoken = token;
 			} else if(getLocalStorage('token')) {
 				headertoken = getLocalStorage('token');
-				store.dispatch(setToken(headertoken));
+				store.dispatch(signIn(headertoken));
 			}
 			if(headertoken) {
 				// 存在将token写入请求头部"TOKEN"

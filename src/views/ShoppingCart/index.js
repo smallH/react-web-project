@@ -1,12 +1,23 @@
 import React from 'react';
-//import './index.styl';
 import ProductsContainer from '@/containers/ShoppingCart/Products.js'
 import CartContainer from '@/containers/ShoppingCart/Cart.js'
+import { connect } from 'react-redux'
+import { getAllProducts } from '@/reducers/ShoppingCart/Products/actions'
+import PropTypes from 'prop-types'
 
 class ShoppingCart extends React.Component {
+	static propTypes = {
+		init: PropTypes.func.isRequired
+	}
+
 	constructor(props) {
 		super(props)
 		this.state = {}
+	}
+
+	componentDidMount() {
+		const {init} = this.props
+		init()
 	}
 
 	render() {
@@ -22,4 +33,8 @@ class ShoppingCart extends React.Component {
 	}
 }
 
-export default ShoppingCart;
+const mapDispatchToProps = (dispatch, ownProps) => ({
+	init: () => (dispatch(getAllProducts()))
+})
+
+export default connect(null, mapDispatchToProps)(ShoppingCart)

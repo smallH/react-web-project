@@ -22,7 +22,6 @@ export const getCartProducts = state =>
 
 // 获取在售的商品列表
 export const getVisibleProducts = state => {
-	console.log(state.shoppingcart)
 	return getProductsVisibleIds(state).map(id => getProductById(state, id))
 }
 	

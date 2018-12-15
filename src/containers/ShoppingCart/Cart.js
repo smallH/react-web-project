@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { checkout } from '@/reducers/ShoppingCart/Cart/actions'
+import { checkout } from '@/reducers/ShoppingCart/actions'
 import { getTotal, getCartProducts } from '@/reducers/ShoppingCart'
 import Cart from '@/components/ShoppingCart/Cart/Cart'
 

@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux'
-import todos from './todos'
-import visibilityFilter from './visibilityFilter'
-import undoable from 'redux-undo'
+import { todos, visibilityFilter } from './reducer'
 import { createSelector } from 'reselect'
+import undoable from 'redux-undo'
 import * as FilterTypes from './actiontypes'
 
 // todos 任务列表增删改查

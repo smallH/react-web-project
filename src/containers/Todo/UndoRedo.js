@@ -1,6 +1,6 @@
 import { ActionCreators as UndoActionCreators } from 'redux-undo'
 import { connect } from 'react-redux'
-import UndoRedo from '@/components/Todo/UndoRedo'
+import UndoRedo from '@/containers/Todo/components/UndoRedo'
 
 //let UndoRedo = ({
 //	onUndo,

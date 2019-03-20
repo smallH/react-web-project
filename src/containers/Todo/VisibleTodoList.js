@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as TodoActions from '@/reducers/Todo/actions'
-import TodoList from '@/components/Todo/TodoList'
+import TodoList from '@/containers/Todo/components/TodoList'
 import { getVisibleTodos } from '@/reducers/Todo'
 
 const mapStateToProps = (state, ownProps) => ({

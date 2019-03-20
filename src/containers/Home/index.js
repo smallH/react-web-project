@@ -5,9 +5,9 @@ import ShoppingCart from '@/containers/ShoppingCart'
 import Todo from '@/containers/Todo'
 import styles from './index.styl';
 import CSSModules from 'react-css-modules';
-import PrivateRoute from '@/components/PrivateRoute'
+import PrivateRoute from '@/components/AuthRoute/PrivateRoute.js'
 import AuthRoute from '@/components/AuthRoute'
-import NoMatch from '@/components/NoMatch'
+import NoMatch from '@/containers/NoMatch'
 
 class Home extends React.Component {
 	constructor(props) {
@@ -20,7 +20,7 @@ class Home extends React.Component {
 		return(
 			<div id="core">
 				<div styleName="header">
-					<div styleName="header-title">react+redux+axios+cssmodules 前端框架</div>
+					<div styleName="header-title">react+axios+redux+cssmodules</div>
 				</div>
 				<div styleName="content">
 					<div styleName="tab">

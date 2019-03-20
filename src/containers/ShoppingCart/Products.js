@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { addToCart } from '@/reducers/ShoppingCart/actions'
 import { getVisibleProducts } from '@/reducers/ShoppingCart'
-import ProductItem from '@/components/ShoppingCart/Products/ProductItem'
-import ProductsList from '@/components/ShoppingCart/Products/ProductsList'
+import ProductItem from '@/containers/ShoppingCart/components/Products/ProductItem'
+import ProductsList from '@/containers/ShoppingCart/components/Products/ProductsList'
 
 const ProductsContainer = ({
 	products,

@@ -33,7 +33,7 @@ class Login extends React.Component {
 	render() {
 		return(
 			<div id="login" styleName="login">
-				<div styleName="title">欢迎使用 react+redux+axios+cssmodules 前端框架</div>
+				<div styleName="title">欢迎使用 react+axios+redux+cssmodules 前端框架</div>
 				<div styleName="nav">
 					<div styleName="btn" onClick={this.visitor}>游客</div>
 					<div styleName="btn manager" onClick={this.manager}>管理员</div>

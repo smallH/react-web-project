@@ -16,8 +16,8 @@ class ShoppingCart extends React.Component {
 	}
 
 	componentDidMount() {
-		const {init} = this.props
-		init()
+		const {init} = this.props;
+		init();
 	}
 
 	render() {

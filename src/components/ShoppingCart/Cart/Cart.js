@@ -22,7 +22,7 @@ const Cart  = ({ products, total, onCheckoutClicked }) => {
       <h3>我的购物车</h3>
       <div>{nodes}</div>
       <p>总金额: &#36;{total}</p>
-      <button onClick={onCheckoutClicked}
+      <button style={styles.buttonStyle} onClick={onCheckoutClicked}
         disabled={hasProducts ? '' : 'disabled'}>
         	付款
       </button>
@@ -34,6 +34,14 @@ Cart.propTypes = {
   products: PropTypes.array,
   total: PropTypes.string,
   onCheckoutClicked: PropTypes.func
+}
+
+const styles = {
+	buttonStyle: {
+		backgroundColor: '#00746a',
+		color: 'white',
+		padding: '5px'
+	}
 }
 
 export default Cart

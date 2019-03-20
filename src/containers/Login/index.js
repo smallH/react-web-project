@@ -33,7 +33,7 @@ class Login extends React.Component {
 	render() {
 		return(
 			<div id="login" styleName="login">
-				<div styleName="title">欢迎使用 react-redux-axios 前端框架</div>
+				<div styleName="title">欢迎使用 react+redux+axios+cssmodules 前端框架</div>
 				<div styleName="nav">
 					<div styleName="btn" onClick={this.visitor}>游客</div>
 					<div styleName="btn manager" onClick={this.manager}>管理员</div>
@@ -43,7 +43,7 @@ class Login extends React.Component {
 	}
 }
 
-// 同样实现propTypes效果
+// 同样实现propTypes功能
 //Login.propTypes = {
 // 	actions: PropTypes.object.isRequired
 //}
@@ -53,7 +53,7 @@ const CSSLogin = CSSModules(Login, styles, {
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-	actions: bindActionCreators(AllActions, dispatch)
+	actions: bindActionCreators(AllActions, dispatch) // 官方推荐写法，即将 dispatch(this.props.signIn()) 包装成  this.props.actions.signIn()
 })
 
 export default connect(null, mapDispatchToProps)(CSSLogin)

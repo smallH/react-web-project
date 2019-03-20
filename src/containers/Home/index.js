@@ -20,7 +20,7 @@ class Home extends React.Component {
 		return(
 			<div id="core">
 				<div styleName="header">
-					<div styleName="header-title">react-redux-axios 前端框架</div>
+					<div styleName="header-title">react+redux+axios+cssmodules 前端框架</div>
 				</div>
 				<div styleName="content">
 					<div styleName="tab">

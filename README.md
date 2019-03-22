@@ -4,3 +4,8 @@
 - API接口采用的是restful接口风格
 - 网络请求使用的是 axios 模块，开发者可个性化需求改用 Fetch。
 - 样式引用使用的是 cssmodules 模块，开发者可个性化需求改用 styles嵌入式写法。
+
+## 运行效果
+```javascript
+http://react.deepui.net
+```

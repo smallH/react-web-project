@@ -11,7 +11,7 @@ class App extends React.Component {
 	
 	render() {
 		return(
-			<BrowserRouter basename="/">
+			<HashRouter basename="/">
 				<Switch>
 					<Route exact path="/" render={props => (
 						<Redirect
@@ -24,7 +24,7 @@ class App extends React.Component {
 					<Route exact path="/login" component={Login}></Route>
 					<Route path="/home" component={Home}></Route>
 				</Switch>
-			</BrowserRouter>
+			</HashRouter>
 		);
 	}
 }

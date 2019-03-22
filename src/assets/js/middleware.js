@@ -6,13 +6,13 @@ import { signIn } from '@/reducers/Auth/actions'
 // Axios配置，网络请求时验证token
 export const SetAxiosConfig = function(store) {
 	let _prefix = '';
-	
+
 	if(process.env.NODE_ENV === 'production') {
 		_prefix = `${process.env.HOST}/api`
 	} else {
 		_prefix = '/api'
 	}
-
+	console.log('process.env:',process.env);
 	axios.defaults.baseURL = _prefix;
 
 	// 请求拦截，在头部加入token

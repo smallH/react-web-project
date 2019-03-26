@@ -11,9 +11,9 @@ const getQuantity = (state, id) => (state.shoppingcart.cart.quantityById[id] || 
 const getProductById = (state, id) => (state.shoppingcart.products.byId[id])
 const getProductsVisibleIds = (state) => (state.shoppingcart.products.visibleIds)
 
-// 获取购物车商品总价格
+// 获取购物车商品总价格 reduce(累加算法(总数，数组对象)，初始值)函数表示遍历数据并累加结果
 export const getTotal = state => 
-	getAddedIds(state).reduce((total, id) =>total + getProductById(state, id).price * getQuantity(state, id),0).toFixed(2)
+	getAddedIds(state).reduce((total, id) =>total + getProductById(state, id).price * getQuantity(state, id), 0).toFixed(2)
 
 // 获取购物车商品列表
 export const getCartProducts = state =>

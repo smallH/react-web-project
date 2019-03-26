@@ -13,6 +13,10 @@ class Home extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {}
+		
+		const publicPath = './';
+		const publicUrl = publicPath.slice(0, -1);
+		console.log('publicUrl:',publicUrl);
 	}
 
 	render() {
@@ -21,10 +25,12 @@ class Home extends React.Component {
 		// 图片引用2：资源引用public目录下，webpack打包后可以找到图片具体文件，常用于大量图片文件的项目         
 		//		<img styleName="logo" src="assets/logo.jpg" />
 		// const TodoRoute = PrivateRoute(Todo, {path:`${this.props.match.path}/Todo`});
+		// 图片引用3：允许路径拼接，依然在public目录下，表示为webpack.config.dev.js或webpack.config.prod.js下的publicUrl路径
+		//      <img styleName="logo" src={ process.env.PUBLIC_URL + "assets/logo.jpg"} />
 		return(
 			<div id="core">
 				<div styleName="header">
-					<img styleName="logo" src="assets/logo.jpg" />
+					<img styleName="logo" src={ process.env.PUBLIC_URL + "assets/logo.jpg"} />
 					<div styleName="header-title">react+axios+redux+cssmodules</div>
 				</div>
 				<div styleName="content">

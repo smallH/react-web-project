@@ -16,10 +16,15 @@ class Home extends React.Component {
 	}
 
 	render() {
-		//		const TodoRoute = PrivateRoute(Todo, {path:`${this.props.match.path}/Todo`});
+		// 图片引用1：官网推荐，将打包成Base64，webpack打包后找不到图片具体文件     
+		//		<img styleName="logo" src={require('./../../assets/img/logo.jpg')} />
+		// 图片引用2：资源引用public目录下，webpack打包后可以找到图片具体文件，常用于大量图片文件的项目         
+		//		<img styleName="logo" src="assets/logo.jpg" />
+		// const TodoRoute = PrivateRoute(Todo, {path:`${this.props.match.path}/Todo`});
 		return(
 			<div id="core">
 				<div styleName="header">
+					<img styleName="logo" src="assets/logo.jpg" />
 					<div styleName="header-title">react+axios+redux+cssmodules</div>
 				</div>
 				<div styleName="content">

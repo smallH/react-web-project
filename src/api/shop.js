@@ -4,7 +4,7 @@ import { _get } from '@/assets/js/http'
 const TIMEOUT = 100
 
 export const getNetProducts = () => {
-	const url = "/data/products.json"; // http://www.helloui.net/api/data/products.json
+	const url = "data/products.json"; // http://www.helloui.net/api/data/products.json
 	const query = {}
 	return _get({
 		url,

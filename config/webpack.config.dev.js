@@ -149,7 +149,7 @@ module.exports = {
 			// Support React Native Web
 			// https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
 			'react-native': 'react-native-web',
-			'@': path.resolve(__dirname, '../src')
+			'@': path.resolve(__dirname, '../src') // __dirname是指当前文件目录config的绝对路径
 		},
 		plugins: [
 			// Adds support for installing with Plug'n'Play, leading to faster installs and adding
@@ -174,6 +174,7 @@ module.exports = {
 		strictExportPresence: true,
 		rules: [
 			// Disable require.ensure as it's not a standard language feature.
+			// 禁用require.ensure
 			{
 				parser: {
 					requireEnsure: false
@@ -193,7 +194,7 @@ module.exports = {
 					},
 					loader: require.resolve('eslint-loader'),
 				}, ],
-				include: paths.appSrc,
+				include: paths.appSrc, // include表示使用该loader功能的文件夹地址，不写会进行全局搜索
 			},
 			{
 				// "oneOf" will traverse all following loaders until one will
@@ -203,11 +204,12 @@ module.exports = {
 					// "url" loader works like "file" loader except that it embeds assets
 					// smaller than specified limit in bytes as data URLs to avoid requests.
 					// A missing `test` is equivalent to a match.
+					// 将文件逐个匹配加载器，如果没有合适的加载器，则使用最后的file-loader加载器加载文件。
 					{
 						test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
 						loader: require.resolve('url-loader'),
 						options: {
-							limit: 10000,
+							limit: 10000, // 小于10k才会转换成Base64，否则以文件格式保存
 							name: 'static/media/[name].[hash:8].[ext]',
 						},
 					},

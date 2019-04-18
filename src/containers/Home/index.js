@@ -1,22 +1,32 @@
 import React from 'react';
 import { Route, NavLink, Switch } from 'react-router-dom'
-import Welcome from '@/containers/Welcome'
-import ShoppingCart from '@/containers/ShoppingCart'
-import Todo from '@/containers/Todo'
+import Loadable from 'react-loadable';
 import styles from './index.styl';
 import CSSModules from 'react-css-modules';
 import PrivateRoute from '@/components/AuthRoute/PrivateRoute.js'
 import AuthRoute from '@/components/AuthRoute'
-import NoMatch from '@/containers/NoMatch'
+
+const MyLoadingComponent = ({
+	isLoading,
+	error
+}) => {
+	if(isLoading) {
+		return <div>Loading...</div>
+	} else if(error) {
+		return <div>Sorry, there was a problem loading the page.</div>
+	} else {
+		return null;
+	}
+};
 
 class Home extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {}
-		
+
 		const publicPath = './';
 		const publicUrl = publicPath.slice(0, -1);
-		console.log('publicUrl:',publicUrl);
+
 	}
 
 	render() {
@@ -27,6 +37,31 @@ class Home extends React.Component {
 		// const TodoRoute = PrivateRoute(Todo, {path:`${this.props.match.path}/Todo`});
 		// 图片引用3：允许路径拼接，依然在public目录下，表示为webpack.config.dev.js或webpack.config.prod.js下的publicUrl路径
 		//      <img styleName="logo" src={ process.env.PUBLIC_URL + "assets/logo.jpg"} />
+
+		const AsyncHome = Loadable({
+			loader: () =>
+				import('@/containers/Welcome'),
+			loading: MyLoadingComponent
+		});
+
+		const AsyncShoppingCart = Loadable({
+			loader: () =>
+				import('@/containers/ShoppingCart'),
+			loading: MyLoadingComponent
+		});
+
+		const AsyncTodo = Loadable({
+			loader: () =>
+				import('@/containers/Todo'),
+			loading: MyLoadingComponent
+		});
+
+		const AsyncNoMatch = Loadable({
+			loader: () =>
+				import('@/containers/NoMatch'),
+			loading: MyLoadingComponent
+		});
+
 		return(
 			<div id="core">
 				<div styleName="header">
@@ -57,10 +92,10 @@ class Home extends React.Component {
 					</div>
 					<div styleName="view">
 						<Switch>
-							<Route exact path={`${this.props.match.path}/welcome`} component={Welcome}></Route>
-							<AuthRoute path={`${this.props.match.path}/shoppingcart`} component={ShoppingCart}></AuthRoute>
-							<AuthRoute path={`${this.props.match.path}/todo`} component={Todo}></AuthRoute>
-							<Route component={NoMatch}/>
+							<Route exact path={`${this.props.match.path}/welcome`} component={AsyncHome}></Route>
+							<AuthRoute path={`${this.props.match.path}/shoppingcart`} component={AsyncShoppingCart}></AuthRoute>
+							<AuthRoute path={`${this.props.match.path}/todo`} component={AsyncTodo}></AuthRoute>
+							<Route component={AsyncNoMatch}/>
 						</Switch>
 					</div>
 				</div>

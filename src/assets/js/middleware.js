@@ -48,7 +48,7 @@ export const SetAxiosConfig = function(store) {
 		}, 
 		function(error) {
 			if(error.response) {
-				switch(error.response.state) {
+				switch(error.response.status) {
 					case 411:
 						// 如411错误为没有token值
 						// 返回处理状态和信息的Promise对象
@@ -56,6 +56,9 @@ export const SetAxiosConfig = function(store) {
 					case 412:
 						// 如412错误为入参不正确
 						// 返回处理状态和信息的Promise对象
+						break;
+					case 404:
+						// 没有该资源
 						break;
 					default:
 						return Promise.reject(error.response.data)

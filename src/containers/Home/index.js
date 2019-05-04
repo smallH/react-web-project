@@ -65,7 +65,7 @@ class Home extends React.Component {
 		return(
 			<div id="core">
 				<div styleName="header">
-					<img styleName="logo" src={ process.env.PUBLIC_URL + "assets/logo.jpg"} />
+					<img styleName="logo" src={ process.env.PUBLIC_URL + "/assets/logo.jpg"} />
 					<div styleName="header-title">react+axios+redux+cssmodules</div>
 				</div>
 				<div styleName="content">

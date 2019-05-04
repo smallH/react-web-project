@@ -12,9 +12,9 @@ export const _get = ({url, query}) => {
 		params: { ...query}
 	}).then((res) => {
 		if(res.status >= 200 && res.status < 300) {
-			return res.data
+			return res.data;
 		}
-		return Promise.reject(res)
+		return Promise.reject(res);
 	}, (err) => {
 		return Promise.reject(err.message || err.data);
 	});
@@ -32,7 +32,7 @@ export const _post = ({url, body}) => {
 		data: { ...body}
 	}).then((res) => {
 		if(res.status >= 200 && res.status < 300) {
-			return res.data
+			return res.data;
 		}
 		return Promise.reject(res);
 	}, (err) => {
@@ -52,7 +52,7 @@ export const _delete = ({url, body}) => {
 		data: { ...body}
 	}).then((res) => {
 		if(res.status >= 200 && res.status < 300) {
-			return res.data
+			return res.data;
 		}
 		return Promise.reject(res);
 	}, (err) => {
@@ -73,7 +73,7 @@ export const _put = ({url, body}) => {
 		data: { ...body}
 	}).then((res) => {
 		if(res.status >= 200 && res.status < 300) {
-			return res.data
+			return res.data;
 		}
 		return Promise.reject(res);
 	}, (err) => {
@@ -94,7 +94,7 @@ export const _patch = ({url, body}) => {
 		data: { ...body}
 	}).then((res) => {
 		if(res.status >= 200 && res.status < 300) {
-			return res.data
+			return res.data;
 		}
 		return Promise.reject(res);
 	}, (err) => {
